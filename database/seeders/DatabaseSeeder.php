@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Storage::deleteDirectory('services');
+        Storage::makeDirectory('services');
         // \App\Models\User::factory(10)->create();
+
+        $this->call(UserSeeder::class);
+        $this->call(PrecioSeeder::class);
+        $this->call(ServiceSeeder::class);
     }
 }
