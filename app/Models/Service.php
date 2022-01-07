@@ -9,11 +9,28 @@ class Service extends Model
 {
     use HasFactory;
     protected $guarded = ['id', 'status'];
+    protected $withCount = ['users', 'comment'];
 
     const PENDIENTE = 1;
     const APROBADO = 2;
     const RECHAZADO = 3;
     const FINALIZADO = 4;
+
+
+    //Funcion para ver la calificacion y comentarios del servicio
+    public function getCalificacionAttribute(){
+        if($this->comment_count){
+
+            return round($this->comment->avg('calificacion'), 1);
+        }
+        else{
+            return 5;
+        }        
+    }
+
+    public function getRouteKeyName(){
+        return "slug";
+    }
 
     //Relacion uno a muchos inversa
     public function nana(){
@@ -27,6 +44,10 @@ class Service extends Model
     //Relacion uno a muchos
     public function comment(){
         return $this->hasMany('App\Models\Comment');
+    }
+
+    public function requirements(){
+        return $this->hasMany('App\Models\Requirement');
     }
 
     //Relacion muchos a muchos

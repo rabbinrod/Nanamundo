@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Service;
 use App\Models\Image;
+use App\Models\Requirement;
 
 class ServiceSeeder extends Seeder
 {
@@ -21,6 +22,10 @@ class ServiceSeeder extends Seeder
             Image::factory(1)->create([
                 'imageable_id' => $service->id,
                 'imageable_type' => 'App\Models\Service'
+            ]);
+
+            Requirement::factory(4)->create([
+                'service_id' => $service->id
             ]);
         }
     }
