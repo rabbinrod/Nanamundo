@@ -9,5 +9,9 @@
     </section>
 
     @livewire('service-index')
+
+    <section class="mt-24">
+        <x-footer/>
+    </section>
     
 </x-app-layout>

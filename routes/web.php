@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Livewire\ServiceCita;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,15 @@ use App\Http\Controllers\ServiceController;
 
 Route::get('/', HomeController::class)->name('home');
 
+Route::get('preguntas-frecuentes', function () { return view('welcome.faqs');
+})->name('faqs');
+
+Route::get('acercade', function () { return view('welcome.about');
+})->name('about');
+
+Route::get('contactanos', function () { return view('welcome.contact-us');
+})->name('contact');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -24,3 +34,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('servicios', [ServiceController::class, 'index'])->name('services.index');
 
 Route::get('servicios/{service}', [ServiceController::class, 'show'])->name('services.show');
+
+Route::post('servicios/{service}/enrolled', [ServiceController::class, 'enrolled'])->middleware('auth')->name('service.enrolled');
+
+Route::get('servicios-cita/{service}', ServiceCita::class)->name('services.cita');

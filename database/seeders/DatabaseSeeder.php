@@ -18,8 +18,10 @@ class DatabaseSeeder extends Seeder
         Storage::makeDirectory('services');
         // \App\Models\User::factory(10)->create();
 
+        $this->call(PermissionSeeder::class);
+        $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(PrecioSeeder::class);
-        $this->call(ServiceSeeder::class);
+        $this->call(ServiceSeeder::class);        
     }
 }

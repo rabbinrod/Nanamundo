@@ -31,7 +31,12 @@
         <div>
             <section class="card">
                 <div class="card-body">
-                    <a class="btn btn-danger btn-block" href="">Contratar</a>
+                    <form action="{{route('service.enrolled', $service)}}" method="POST"> 
+                        @csrf
+                        <button class="btn btn-danger btn-block" type="submit">Contratar</button>
+
+                    </form>
+
                 </div>
             </section>
         </div>

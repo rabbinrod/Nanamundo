@@ -1,6 +1,6 @@
 @php
     $nav_links =[
-       [ 'name' => 'Home',
+       [ 'name' => 'Inicio',
          'route' => route('home'),
          'active' => request()->routeIs('home')
        ],
@@ -8,7 +8,20 @@
          'route' => route('services.index'),
          'active' => request()->routeIs('services.*')
        ],
+       [ 'name' => 'Preguntas Frecuentes',
+         'route' => route('faqs'),
+         'active' => request()->routeIs('faqs')
+       ],
 
+       [ 'name' => 'Acerca de',
+         'route' => route('about'),
+         'active' => request()->routeIs('about')
+       ],
+
+       [ 'name' => 'Contactanos',
+         'route' => route('contact'),
+         'active' => request()->routeIs('contact')
+       ],
 ];
 @endphp
 
@@ -118,9 +131,14 @@
                             </div>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                Perfil
                             </x-jet-dropdown-link>
-
+                            
+                            @can('Leer Servicios')                             
+                                <x-jet-dropdown-link href="{{ route('cliente.services.index') }}">
+                                    Cliente
+                                </x-jet-dropdown-link>
+                            @endcan
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                     {{ __('API Tokens') }}
@@ -193,7 +211,11 @@
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
+                    Perfil
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link href="{{ route('cliente.services.index') }}" :active="request()->routeIs('cliente.services.index')">
+                    Cliente
                 </x-jet-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
