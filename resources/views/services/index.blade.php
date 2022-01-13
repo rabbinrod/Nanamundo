@@ -8,7 +8,7 @@
         </div>
     </section>
 
-    @livewire('service-index')
+    @livewire('services-index')
 
     <section class="mt-24">
         <x-footer/>
