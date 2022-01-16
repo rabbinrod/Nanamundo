@@ -17,16 +17,15 @@ class CreateHijosTable extends Migration
             $table->id();
 
             $table->string('name')->nullable();
-            $table->string('lastname')->nullable();
-            $table->date('fecha_nac')->nullable();
+            $table->string('edad')->nullable();
             $table->string('genero')->nullable();
             $table->text('alergias')->nullable();
             $table->text('prohibiciones')->nullable();
             $table->text('actividades')->nullable();
             $table->text('comments')->nullable();
 
-            $table->unsignedBigInteger('profile_id');
-            $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             
             $table->timestamps();

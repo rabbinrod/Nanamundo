@@ -136,7 +136,13 @@
                             
                             @can('Leer Servicios')                             
                                 <x-jet-dropdown-link href="{{ route('cliente.services.index') }}">
-                                    Servicios
+                                    Mi información
+                                </x-jet-dropdown-link>
+                            @endcan
+
+                            @can('Ver Dashboard')                             
+                                <x-jet-dropdown-link href="{{ route('admin.home') }}">
+                                    Dashboard
                                 </x-jet-dropdown-link>
                             @endcan
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -215,7 +221,11 @@
                 </x-jet-responsive-nav-link>
 
                 <x-jet-responsive-nav-link href="{{ route('cliente.services.index') }}" :active="request()->routeIs('cliente.services.index')">
-                    Servicios
+                    Mi información
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link href="{{ route('admin.home') }}" :active="request()->routeIs('home')">
+                    Dashboard
                 </x-jet-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

@@ -11,7 +11,7 @@ class Hijo extends Model
     protected $guarded = ['id'];
 
     //Relacion uno a muchos inversa
-    public function profile(){
-        return $this->belongsTo('App\Models\Profile');
+    public function user(){
+        return $this->belongsTo('App\Models\User');
     }
 }

@@ -8,10 +8,10 @@
                     <a class="leading-7 mb-1 border-l-4 border-indigo-400 pl-2" href="">Servicios</a>
                 </li>
                 <li>
-                    <a class="leading-7 mb-1 border-l-4 border-transparent pl-2 " href="">Hijos</a>
+                    <a class="leading-7 mb-1 border-l-4 border-transparent pl-2 " href="{{route('cliente.hijos.index')}}">Hijos</a>
                 </li>
                 <li>
-                    <a class="leading-7 mb-1 border-l-4 border-transparent pl-2" href="">Direcciones</a>
+                    <a class="leading-7 mb-1 border-l-4 border-transparent pl-2" href="{{route('cliente.direcciones.index')}}">Direcciones</a>
                 </li>
             </ul>
             
@@ -59,8 +59,7 @@
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
-                                                <div class="text-sm text-gray-500">Optimization</div>
+                                                <div class="text-sm text-gray-900">Regional Paradigm Technician</div>                                
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 @switch($service->status)
@@ -80,7 +79,7 @@
                                                             </span>
                                                         @break
                                                         @case(4)
-                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
                                                                 Finalizado
                                                             </span>
                                                         @break

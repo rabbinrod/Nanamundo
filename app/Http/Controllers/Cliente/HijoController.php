@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cliente;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Hijo;
 
 class HijoController extends Controller
 {
@@ -14,7 +15,8 @@ class HijoController extends Controller
      */
     public function index()
     {
-        //
+        $hijos = Hijo::where('user_id', auth()->user()->id)->get();
+        return view('cliente.hijos.index', compact('hijos'));
     }
 
     /**
@@ -24,7 +26,7 @@ class HijoController extends Controller
      */
     public function create()
     {
-        //
+        return view('cliente.hijos.create');
     }
 
     /**
@@ -44,9 +46,9 @@ class HijoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Hijo $hijo)
     {
-        //
+        return view('cliente.hijos.show', compact('hijo'));
     }
 
     /**
@@ -55,9 +57,9 @@ class HijoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Hijo $hijo)
     {
-        //
+        return view('cliente.hijos.edit', compact('hijo'));
     }
 
     /**
@@ -67,7 +69,7 @@ class HijoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Hijo $hijo)
     {
         //
     }
@@ -78,7 +80,7 @@ class HijoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Hijo $hijo)
     {
         //
     }

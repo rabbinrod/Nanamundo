@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cliente;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Direccion;
 
 class DireccionController extends Controller
 {
@@ -14,7 +15,7 @@ class DireccionController extends Controller
      */
     public function index()
     {
-        //
+        return view('cliente.direcciones.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class DireccionController extends Controller
      */
     public function create()
     {
-        //
+        return view('cliente.direcciones.create');
     }
 
     /**
@@ -44,9 +45,9 @@ class DireccionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Direccion $direccion)
     {
-        //
+        return view('cliente.direcciones.show', compact('direccion'));
     }
 
     /**
@@ -55,9 +56,9 @@ class DireccionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Direccion $direccion)
     {
-        //
+        return view('cliente.direcciones.edit', compact('direccion'));
     }
 
     /**
@@ -67,7 +68,7 @@ class DireccionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Direccion $direccion)
     {
         //
     }
@@ -78,7 +79,7 @@ class DireccionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Direccion $direccion)
     {
         //
     }

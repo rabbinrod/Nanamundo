@@ -75,6 +75,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Comment');
     }
 
+    public function hijo(){
+        return $this->hasMany('App\Models\Hijo');
+    }
+
+    public function direccion(){
+        return $this->hasMany('App\Models\Direccion');
+    }
+
     //Relacion muchos a muchos
     public function service_enrolled(){
         return $this->belongsToMany('App\Models\Service');
