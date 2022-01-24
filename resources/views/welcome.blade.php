@@ -72,7 +72,7 @@
 
     <section class="mt-24 bg-gray-700 py-12">
         <h1 class="text-center text-white text-3xl">¿No sabes que servicio contratar?</h1>
-        <p class="text-center text-white">Lorem ipsum dolor sit amet</p>
+        <p class="text-center text-white">Revisa nuestro catálogo de servicios.</p>
         <div class="flex justify-center mt-4">
             <a href="{{route('services.index')}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Catalogo de servicios
@@ -82,7 +82,7 @@
 
     <section class="mt-24">
         <h1 class="text-gray-600 text-center text-3xl">¿POR QUÉ ELEGIRNOS?</h1>
-        <p class="text-center text-gray-500 text-sm mb-6">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        <p class="text-center text-gray-500 text-sm mb-6">Ofrecemos nuestros servicios con lo mejor que tenemos para ti.</p>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
             <article>
@@ -139,7 +139,7 @@
 
     <section class="mt-24">
         <h1 class="text-center text-3xl text-gray-600">NUESTROS SERVICIOS</h1>
-        <p class="text-center text-gray-500 text-sm mb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe consequuntur .</p>
+        <p class="text-center text-gray-500 text-sm mb-6">Conócelos</p>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
             @foreach ($services as $service)

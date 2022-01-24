@@ -21,6 +21,13 @@
 
                 {!! Form::open(['route' => 'cliente.hijos.store']) !!}
 
+                    {!! Form::hidden('user_id', auth()->user()->id) !!}
+
+                    @include('cliente.hijos.partials.form')
+
+                    <div class="mb-4">
+                        {!! Form::submit('Agregar informacion', ['class' => 'btn btn-primary cursor-pointer']) !!}
+                    </div>
                 {!! Form::close() !!}
             </div>
         </div>

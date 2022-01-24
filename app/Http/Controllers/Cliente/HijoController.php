@@ -37,7 +37,17 @@ class HijoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'edad' => 'required',
+            'genero' => 'required',
+            'prohibiciones' => 'required',
+            'actividades' => 'required',
+            'comments' => 'required',
+        ]);
+
+        $hijo = Hijo::create($request->all() );
+        return redirect()->route('cliente.hijos.edit', $hijo);
     }
 
     /**
@@ -71,7 +81,17 @@ class HijoController extends Controller
      */
     public function update(Request $request, Hijo $hijo)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'edad' => 'required',
+            'genero' => 'required',
+            'prohibiciones' => 'required',
+            'actividades' => 'required',
+            'comments' => 'required',
+        ]);
+
+        $hijo->update($request->all());
+        return redirect()->route('cliente.hijos.edit', $hijo);
     }
 
     /**

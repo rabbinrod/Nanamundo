@@ -20,36 +20,9 @@
                 <hr class="mt-2 mb-8">
 
                 {!! Form::model($hijo, ['route' => ['cliente.hijos.update', $hijo], 'method' => 'put']) !!}
-                    <div class="mb-4 ">
-                        {!! Form::label('name', 'Nombre completo') !!}
-                        {!! Form::text('name', null, ['class' => 'form-input block w-full mt-1' ]) !!}
-                    </div>
-                    <div class="grid grid-cols-2 gap-2"> 
-                        <div class="mb-4">
-                            {!! Form::label('edad', 'Edad') !!}
-                            {!! Form::text('edad', null, ['class' => 'form-input block w-15 mt-1' ]) !!}
-                        </div>
-                        <div class="mb-4 ">
-                            {!! Form::label('genero', 'Genero') !!}
-                            {!! Form::text('genero', null, ['class' => 'form-input block w-15 mt-1' ]) !!}
-                        </div>
-                    </div>                   
-                    <div class="mb-4 ">
-                        {!! Form::label('alergias', 'Alergias') !!}
-                        {!! Form::text('alergias', null, ['class' => 'form-input block w-full mt-1' ]) !!}
-                    </div>
-                    <div class="mb-4 ">
-                        {!! Form::label('prohibiciones', 'Prohibiciones') !!}
-                        {!! Form::text('prohibiciones', null, ['class' => 'form-input block w-full mt-1' ]) !!}
-                    </div>
-                    <div class="mb-4 ">
-                        {!! Form::label('actividades', 'Actividades') !!}
-                        {!! Form::text('actividades', null, ['class' => 'form-input block w-full mt-1' ]) !!}
-                    </div>
-                    <div class="mb-4 ">
-                        {!! Form::label('comments', 'Comentarios') !!}
-                        {!! Form::text('comments', null, ['class' => 'form-input block w-full mt-1' ]) !!}
-                    </div>
+                    
+                    @include('cliente.hijos.partials.form')
+
                     <div class="mb-4">
                         {!! Form::submit('Actualizar información', ['class' => 'btn btn-primary']) !!}
                     </div>

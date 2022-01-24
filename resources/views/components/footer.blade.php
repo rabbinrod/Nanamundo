@@ -1,27 +1,20 @@
 <!-- component -->
 <div class="bg-gray-800">
     <div class="max-w-6xl m-auto text-gray-100 flex flex-wrap justify-center">
-       <div class="p-5 w-48 ">
-          <div class="text-xs uppercase text-gray-400 font-medium">Home</div>
-          <a class="my-3 block" href="/#">Services <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Products <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">About Us <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Pricing <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Partners <span class="text-teal-600 text-xs p-1">New</span></a> 
+       <div class="p-5 w-60 ">
+          <div class="text-xs uppercase text-gray-400 font-medium">Inicio</div>
+          <a class="my-3 block" href="/#">Servicios <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Preguntas Frecuentes<span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Acerca de <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Contactános <span class="text-teal-600 text-xs p-1"></span></a>
+           
        </div>
-       <div class="p-5 w-48 ">
-          <div class="text-xs uppercase text-gray-400 font-medium">User</div>
-          <a class="my-3 block" href="/#">Login <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">New Account <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Demo <span class="text-teal-600 text-xs p-1">New</span></a><a class="my-3 block" href="/#">Career <span class="text-teal-600 text-xs p-1">We're hiring</span></a><a class="my-3 block" href="/#">Surveys <span class="text-teal-600 text-xs p-1">New</span></a> 
+       <div class="p-5 w-60 ">
+          <div class="text-xs uppercase text-gray-400 font-medium">Usuario</div>
+          <a class="my-3 block" href="/#">Iniciar sesión <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Registrarse <span class="text-teal-600 text-xs p-1"></span></a>
        </div>
-       <div class="p-5 w-48 ">
-          <div class="text-xs uppercase text-gray-400 font-medium">Resources</div>
-          <a class="my-3 block" href="/#">Documentacion <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Tutoriales <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Support <span class="text-teal-600 text-xs p-1">New</span></a> 
+       <div class="p-5 w-60">
+          <div class="text-xs uppercase text-gray-400 font-medium">Soporte</div>
+          <a class="my-3 block" href="/#">Atención al cliente <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Politicas de privacidad <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Términos y condiciones <span class="text-teal-600 text-xs p-1"></span></a> 
        </div>
-       <div class="p-5 w-48 ">
-          <div class="text-xs uppercase text-gray-400 font-medium">Productos</div>
-          <a class="my-3 block" href="/#">Nuestros Productos <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Great Deals <span class="text-teal-600 text-xs p-1">New</span></a><a class="my-3 block" href="/#">Analytics <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Mobile <span class="text-teal-600 text-xs p-1"></span></a> 
-       </div>
-       <div class="p-5 w-48 ">
-          <div class="text-xs uppercase text-gray-400 font-medium">Support</div>
-          <a class="my-3 block" href="/#">Atención al cliente <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Politicas de privacidad <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Conditions <span class="text-teal-600 text-xs p-1"></span></a> 
-       </div>
-       <div class="p-5 w-48 ">
+       <div class="p-5 w-60">
           <div class="text-xs uppercase text-gray-400 font-medium">Contactános</div>
           <a class="my-3 block" href="/#">Calle Tabasco S/N, Col. Plan de Ayala <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">contact@company.com <span class="text-teal-600 text-xs p-1"></span></a> 
        </div>

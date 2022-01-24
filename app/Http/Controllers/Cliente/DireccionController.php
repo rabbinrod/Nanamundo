@@ -15,7 +15,8 @@ class DireccionController extends Controller
      */
     public function index()
     {
-        return view('cliente.direcciones.index');
+        $direcciones = Direccion::where('user_id', auth()->user()->id)->get();
+        return view('cliente.direcciones.index', compact('direcciones'));
     }
 
     /**
@@ -36,7 +37,18 @@ class DireccionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'calle' => 'required',
+            'colonia' => 'required',
+            'num_int' => 'required',
+            'num_ext' => 'required',
+            'cp' => 'required',
+            'phone' => 'required',
+            'referencias' => 'required',
+        ]);
+
+        $direccione = Direccion::create($request->all());
+        return redirect()->route('cliente.direcciones.edit', $direccione);
     }
 
     /**
@@ -45,9 +57,9 @@ class DireccionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Direccion $direccion)
+    public function show(Direccion $direccione)
     {
-        return view('cliente.direcciones.show', compact('direccion'));
+        return view('cliente.direcciones.show', compact('direccione'));
     }
 
     /**
@@ -56,9 +68,9 @@ class DireccionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Direccion $direccion)
+    public function edit(Direccion $direccione)
     {
-        return view('cliente.direcciones.edit', compact('direccion'));
+        return view('cliente.direcciones.edit', compact('direccione'));
     }
 
     /**
@@ -68,9 +80,20 @@ class DireccionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Direccion $direccion)
+    public function update(Request $request, Direccion $direccione)
     {
-        //
+        $request->validate([
+            'calle' => 'required',
+            'colonia' => 'required',
+            'num_int' => 'required',
+            'num_ext' => 'required',
+            'cp' => 'required',
+            'phone' => 'required',
+            'referencias' => 'required',
+        ]);
+
+        $direccione->update($request->all());
+        return redirect()->route('cliente.direcciones.edit', $direccione);
     }
 
     /**
@@ -79,7 +102,7 @@ class DireccionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Direccion $direccion)
+    public function destroy(Direccion $direccione)
     {
         //
     }
