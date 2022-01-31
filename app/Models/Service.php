@@ -11,11 +11,6 @@ class Service extends Model
     protected $guarded = ['id', 'status'];
     protected $withCount = ['users', 'comment'];
 
-    const PENDIENTE = 1;
-    const APROBADO = 2;
-    const RECHAZADO = 3;
-    const FINALIZADO = 4;
-
 
     //Funcion para ver la calificacion y comentarios del servicio
     public function getCalificacionAttribute(){
@@ -35,10 +30,6 @@ class Service extends Model
     //Relacion uno a muchos inversa
     public function nana(){
         return $this->belongsTo('App\Models\User', 'user_id');
-    }
-
-    public function precio(){
-        return $this->belongsTo('App\Models\Precio');
     }
 
     //Relacion uno a muchos

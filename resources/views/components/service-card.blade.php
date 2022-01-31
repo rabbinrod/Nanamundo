@@ -18,7 +18,9 @@
             <p class="text-sm text-gray-500 ml-auto"><i class="fas fa-users"> ({{$service->users_count}}) </i></p>
         </div>
         
-        <a href="{{route('services.show', $service)}}" class="mt-4 btn btn-primary btn-block">
+        <p class="my-2 text-gray-500 font-bold">${{$service->precio}} MXN</p>
+
+        <a href="{{route('services.show', $service)}}" class="btn btn-primary btn-block">
             Más información
         </a>
     </div>

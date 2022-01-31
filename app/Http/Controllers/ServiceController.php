@@ -18,7 +18,7 @@ class ServiceController extends Controller
     public function enrolled(Service $service){
         $service->users()->attach(auth()->user());
 
-        return redirect()->route('cliente.services.index', $service);
+        return redirect()->route('orders.create', $service);
     }
 
    /* public function cita(Service $service){

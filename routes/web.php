@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Livewire\ServiceCita;
+use App\Http\Livewire\CreateOrder;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +40,5 @@ Route::get('servicios/{service}', [ServiceController::class, 'show'])->name('ser
 Route::post('servicios/{service}/enrolled', [ServiceController::class, 'enrolled'])->middleware('auth')->name('service.enrolled');
 
 Route::get('servicios-cita/{service}', ServiceCita::class)->name('services.cita');
+
+Route::get('orders/create/{service}', CreateOrder::class)->middleware('auth')->name('orders.create');

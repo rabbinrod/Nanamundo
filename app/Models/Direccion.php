@@ -13,5 +13,10 @@ class Direccion extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
+
+     //Relacion uno a uno
+     public function order(){
+        return $this->hasOne('App\Models\Order');
+    }
     
 }

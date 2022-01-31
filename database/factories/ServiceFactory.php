@@ -22,10 +22,9 @@ class ServiceFactory extends Factory
         return [
             'name' => $title,
             'descripcion' => $this->faker->paragraph(),
-            'status' => $this->faker->randomElement([Service::PENDIENTE, Service::APROBADO, Service::RECHAZADO, Service::FINALIZADO]),
             'slug' => Str::slug($title),
+            'precio' => $this->faker->randomNumber($nbDigits = 3),
             'user_id' => 1,
-            'precio_id' => Precio::all()->random()->id,
         ];
     }
 }

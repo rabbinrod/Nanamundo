@@ -14,4 +14,9 @@ class Hijo extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
+
+      //relacion uno a muchos
+      public function order(){
+        return $this->hasMany('App\Models\Order');
+    }
 }

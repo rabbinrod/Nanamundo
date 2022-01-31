@@ -31,12 +31,18 @@
         <div>
             <section class="card">
                 <div class="card-body">
+                
                     <form action="{{route('service.enrolled', $service)}}" method="POST"> 
                         @csrf
+                        <p class="text-2xl font-bold text-gray-500 mt-3 mb-2">${{$service->precio}} MXN</p>
                         <button class="btn btn-danger btn-block" type="submit">Contratar</button>
 
                     </form>
-
+                    
+                     {{-- 
+                    <p class="text-2xl font-bold text-gray-500 mt-3 mb-2">${{$service->precio->value}} MXN</p>
+                    <a class="btn btn-danger btn-block" href="{{route('orders.create')}}">Contratar</a>
+                    --}}
                 </div>
             </section>
         </div>

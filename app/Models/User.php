@@ -83,6 +83,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Direccion');
     }
 
+    public function order(){
+        return $this->hasMany('App\Models\Order');
+    }
+
     //Relacion muchos a muchos
     public function service_enrolled(){
         return $this->belongsToMany('App\Models\Service');
