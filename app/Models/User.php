@@ -61,11 +61,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    //Relacion uno a uno
-    public function profile(){
-        return $this->hasOne('App\Models\Profile');
-    }
-
+ 
     //Relacion uno a muchos
     public function service(){
         return $this->hasMany('App\Models\Service');

@@ -6,12 +6,13 @@ use Livewire\Component;
 use App\Models\Direccion;
 use App\Models\Hijo;
 use App\Models\Order;
-use App\Models\Service;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CreateOrder extends Component
 {
-    public $direcciones, $hijos, $service, $qty = 1, $quantity=8;
-    public $hora, $fecha, $total, $content, $direccion_id, $hijo_id;
+    public $direcciones, $hijos;
+    public $hora, $fecha, $total, $content;
+    public $direccion_id = "", $hijo_id = "";
 
     public $rules = [
         'hora' => 'required',
@@ -20,18 +21,9 @@ class CreateOrder extends Component
         'hijo_id' => 'required'
     ];
 
-    public function mount(Service $service){
+    public function mount(){
         $this->direcciones = Direccion::where('user_id', auth()->user()->id)->get();
         $this->hijos = Hijo::where('user_id', auth()->user()->id)->get();
-        $this->service = $service;
-    }
-
-    public function decrement(){
-        $this->qty = $this->qty - 1;
-    }
-
-    public function increment(){
-        $this->qty = $this->qty + 1;
     }
 
    public function create_order(){
@@ -40,10 +32,18 @@ class CreateOrder extends Component
 
         $order = new Order();
         $order->user_id = auth()->user()->id;
-        $order->qty = $this->qty;
-        $order->total = $this->total;
         $order->fecha = $this->fecha;
         $order->hora = $this->hora;
+        $order->total = Cart::subtotal();
+        $order->content = Cart::content();
+        $order->hijo_id = auth()->user()->id;
+        $order->direccion_id = auth()->user()->id;
+
+        $order->save();
+
+        Cart::destroy();       
+
+       return redirect()->route('orders.payment', $order);
     }
 
     public function render()

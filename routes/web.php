@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Livewire\ServiceCita;
 use App\Http\Livewire\CreateOrder;
 use GuzzleHttp\Middleware;
+use App\Http\Livewire\ShoppingCart;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +43,8 @@ Route::post('servicios/{service}/enrolled', [ServiceController::class, 'enrolled
 
 Route::get('servicios-cita/{service}', ServiceCita::class)->name('services.cita');
 
-Route::get('orders/create/{service}', CreateOrder::class)->middleware('auth')->name('orders.create');
+Route::get('shopping-cart', ShoppingCart::class)->name('shopping-cart');
+
+Route::get('orders/create/', CreateOrder::class)->middleware('auth')->name('orders.create');
+
+Route::get('orders/{order}/payment', [OrderController::class, 'payment'])->name('orders.payment');

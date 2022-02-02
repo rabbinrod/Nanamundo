@@ -6,6 +6,8 @@
             <div>
                 <x-jet-label value="Seleecionar direccion"/>
                 <select class="form-control w-full" wire:model="direccion_id">
+                    <option value="" disabled selected>Seleccione una direccion</option>
+
                     @foreach ($direcciones as $direccione)
                         <option value="{{$direccione->id}}">{{$direccione->calle}}</option>
                     @endforeach
@@ -15,8 +17,10 @@
             <div class="mt-4">
                 <x-jet-label value="Seleecionar hijo"/>
                 <select class="form-control w-full" wire:model="hijo_id">
+                    <option value="" disabled selected>Seleccione un hijo</option>
+                    
                     @foreach ($hijos as $hijo)
-                        <option value="{{$hijo->id}}">{{$hijo->name}}</option>
+                        <option value="hijo_id">{{$hijo->name}}</option>
                     @endforeach
                 </select>
                 <x-jet-input-error for="hijo_id"/>
@@ -32,7 +36,10 @@
                 <x-jet-input-error for="hora"/>
             </div>
             <div>
-                <x-jet-button class="mt-6 mb-4" wire:click="create_order">
+                <x-jet-button class="mt-6 mb-4" 
+                wire:loading.attr="disabled"
+                wire:target="create_order"
+                wire:click="create_order">
                     Continuar la compra
                 </x-jet-button>
 
@@ -43,43 +50,29 @@
     </div>
     <div class="col-span-2">
         <div class="bg-white rounded-lg shadow p-6">
-            <article class="">
-               <img class="h-12 w-12 object-cover" src="{{Storage::url($service->image->url)}}">
-                <h1 class="text-lg ml-2">{{$service->name}}</h1>
-            </article>
+            <ul>
+                @forelse (Cart::content() as $item)
+                    <li class="flex p-2 border-b border-gray-200">
+                        <img class="h-15 w-20 object-cover mr-4" src="{{$item->options->image}}" alt="">
+
+                        <article class="flex-1">
+                            <h1 class="font-bold">{{$item->name}}</h1>
+                            <p>Cant. Horas: {{$item->qty}}</p>
+                            <p>${{$item->price}} MXN</p>
+                        </article>
+                    </li>
+                @empty
+                    <li class="py-6 px-4">
+                        <p class="text-center text-gray-700">No tiene agregado ningun item en el carrito.</p>
+                    </li>   
+                @endforelse
+            </ul>
             
             <hr class="mt-4 mb-3">
-            <div class="text-gray-700 ">
-                <p class="flex justify-between items-center">Subtotal
-                    <span class="font-semibold">${{$service->precio}} MXN</span>
-                </p>
-                    <div class="flex justify-between items-center">
-                        <p>Cant. Horas </p>
-                        <div x-data>
-                            <x-jet-secondary-button disabled                            
-                            x-bind:disabled="$wire.qty <= 1"
-                            wire:loading.attr="disabled"
-                            wire:target="decrement" 
-                            wire:click="decrement">
-                                -
-                            </x-jet-secondary-button>
-                            <span class="mx-2 text-gray-700">{{$qty}}</span>
-                            <x-jet-secondary-button disabled                            
-                            x-bind:disabled="$wire.qty >= $wire.quantity"
-                            wire:loading.attr="disabled"
-                            wire:target="increment"
-                            wire:click="increment">
-                                +
-                            </x-jet-secondary-button>
-                        </div>
-                    </div>
-
-                
-
-                <hr class="mt-4 mb-3">
-                <p class="flex justify-between items-center ont-semibold">
+            <div class="text-gray-700">
+                <p class="flex justify-between items-center font-semibold">                    
                     <span class="text-lg">Total</span>
-                   {{($qty * $service->precio)}} MXN
+                    ${{Cart::subtotal()}} MXN
                 </p>
                 
             </div>

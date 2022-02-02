@@ -19,14 +19,13 @@ class CreateOrdersTable extends Migration
             $table->id();
 
             $table->enum('status', [Order::PENDIENTE, Order::APROBADO, Order::RECHAZADO, Order::FINALIZADO])->default(Order::PENDIENTE);
-           /* $table->string('pago_type'); */
-            $table->string('qty');
-            $table->float('total');
-           // $table->json('content');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');            
             $table->date('fecha');
             $table->time('hora');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->float('total');
+            $table->json('content');
+
             $table->unsignedBigInteger('direccion_id');
             $table->foreign('direccion_id')->references('id')->on('direccions');
             $table->unsignedBigInteger('hijo_id');

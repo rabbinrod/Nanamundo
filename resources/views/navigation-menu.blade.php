@@ -166,10 +166,32 @@
                         </x-slot>
                     </x-jet-dropdown>
                     @else
+                    <x-jet-dropdown>
+                        <x-slot name="trigger">
+                            <i class="far fa-user-circle cursor-pointer text-gray-400 text-2xl"></i>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <x-jet-dropdown-link href="{{ route('login') }}">
+                                {{ __('Login') }}
+                            </x-jet-dropdown-link>
+
+                            <x-jet-dropdown-link href="{{ route('register') }}">
+                                {{ __('Register') }}
+                            </x-jet-dropdown-link>
+                        
+                        </x-slot>
+                    </x-jet-dropdown>
+                    {{-- 
                     <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Login</a>
                     <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                    --}}
                     @endauth
                     
+                </div>
+
+                <div class="relative ml-4">
+                    @livewire('dropdown-cart')
                 </div>
             </div>
 
